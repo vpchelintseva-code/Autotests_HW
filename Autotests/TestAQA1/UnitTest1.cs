@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Net;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace TestAQA1
 {
@@ -33,6 +35,44 @@ namespace TestAQA1
             UserDataDTO user = userResponse.Data;
 
             Assert.That(user.ID, Is.EqualTo(2));
+        }
+		[Test] //Test3 проверка обработки create
+        public async Task Test3()
+        {
+            var request = new CreateUserRequestDTO
+            {
+                Name = "James",
+                Job = "Intro"
+            };
+
+            using HttpResponseMessage response = await client.PostAsJsonAsync("users", request);
+            string jsonPost = await response.Content.ReadAsStringAsync();
+            CreateUserResponseDTO createdUser = JsonSerializer.Deserialize<CreateUserResponseDTO>(jsonPost,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+            Assert.That(createdUser.Name, Is.EqualTo(request.Name));
+            Assert.That(createdUser.Job, Is.EqualTo(request.Job));
+        }
+        
+         [Test] //test4 проверить статус код после изменения (PUT) для /user2
+        	public async Task Test4()
+        {
+            var request = new CreateUserRequestDTO
+            {
+                Name = "James",
+                Job = "Intro"
+            };
+
+            using HttpResponseMessage response = await client.PutAsJsonAsync("users/2", request);
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+        }
+        
+        [Test] //Test5 delete проверить статус код после выполнения 
+        public async Task Test5()
+        {
+            using HttpResponseMessage response = await client.DeleteAsync("users/2");
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.NoContent));
         }
         [OneTimeTearDown]
         public void TearDown()
