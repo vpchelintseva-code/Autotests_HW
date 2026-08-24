@@ -8,15 +8,15 @@ namespace TestAQA1
     internal class CreateUserRequestDTO
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
         
         [JsonPropertyName("job")]
-        public string Job { get; set; } = string.Empty;
+        public string Job { get; set; }
         
         [JsonPropertyName("id")]
-        public string Id { get; set; } = string.Empty;
+        public string Id { get; set; }
         
         [JsonPropertyName("CreatedAt")]
-        public string CreatedAt { get; set; } = string.Empty;
+        public string CreatedAt { get; set; }
     }
 }

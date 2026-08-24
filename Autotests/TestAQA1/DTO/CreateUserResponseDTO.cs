@@ -8,10 +8,9 @@ namespace TestAQA1
     public class CreateUserResponseDTO
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
 
         [JsonPropertyName("job")] 
-        public string Job { get; set; } = string.Empty;
-        //string.Empty добавила чтобы небыло присвоено значения null, даже если в JSON отсутствует это поле
+        public string Job { get; set; }
     }
 }
