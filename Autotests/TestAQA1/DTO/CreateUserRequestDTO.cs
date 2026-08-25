@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+namespace Autotests.TestAQA1.DTO
 
-namespace TestAQA1
 {
-    internal class CreateUserRequestDTO
+    public class CreateUserRequestDTO
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }

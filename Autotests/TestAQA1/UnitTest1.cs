@@ -2,7 +2,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 
-namespace TestAQA1
+namespace Autotests.TestAQA1.DTO
 {
     public class Tests
     {
