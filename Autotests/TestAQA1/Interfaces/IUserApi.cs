@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Tests1.DTO;
+using Autotests.TestAQA1.DTO;
 using Refit;
 
-namespace Tests1.Interfaces
-{
+namespace Autotests.TestAQA1.DTO.Interfaces;
+
     [Headers("x-api-key: free_user_3HxNFNxHA5PT2D4rTd3FTeB0AOM")]
     public interface IUserApi
     {
@@ -18,4 +18,3 @@ namespace Tests1.Interfaces
         [Delete("/users/{id}")]
         Task<ApiResponse<string>> DeleteUserAsync(int id);
     }
-}

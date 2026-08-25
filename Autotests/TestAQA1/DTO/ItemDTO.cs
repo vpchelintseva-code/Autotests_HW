@@ -10,5 +10,5 @@ public record ItemDTO
     [property: JsonPropertyName("name")] string name,
     [property: JsonPropertyName("category")] string category,
     [property: JsonPropertyName("quantity")] string quantity,
-    [property: JsonPropertyName("price")] string price
+    [property: JsonPropertyName("price")] decimal price
 );

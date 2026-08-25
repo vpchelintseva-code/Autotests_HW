@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Refit;
 using Microsoft.Extensions.DependencyInjection;
-using Tests1.Interfaces;
+using Autotests.TestAQA1.DTO.Interfaces;
 using NUnit.Framework;
-using Tests1.DTO;
+using Autotests.TestAQA1.DTO;
 using System.Net;
 
 
-namespace Autotests.TestAQA1
-{
+
+namespace Autotests.TestAQA1.DTO;
+    
     public class RefitTests
     {
         private IUserApi api;
@@ -54,4 +55,3 @@ namespace Autotests.TestAQA1
             //Assert.That((int)deleteResult.StatusCode, Is.EqualTo(204));
         }
     }
-}

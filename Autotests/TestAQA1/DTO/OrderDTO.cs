@@ -1,4 +1,4 @@
-namespace TestProject1.DTO;
+namespace Autotests.TestAQA1.DTO;
 
 using System.Text.Json.Serialization;
 
