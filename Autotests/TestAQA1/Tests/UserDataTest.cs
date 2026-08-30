@@ -14,7 +14,7 @@ namespace Autotests.TestAQA1.Tests
             [OneTimeSetUp]
             public void Setup()
             {
-                var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "Resourses", "UsersData.json");
+                var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "Resources", "UsersData.json");
                 string json = File.ReadAllText(path);
                 root = JsonSerializer.Deserialize<RootDTO>(json)!;
             }
