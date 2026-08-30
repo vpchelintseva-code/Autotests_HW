@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Autotests.TestAQA1.DTO;
+using Autotests.TestAQA1.DTO.Api;
 using Refit;
 
-namespace Autotests.TestAQA1.DTO.Interfaces;
+namespace Autotests.TestAQA1.Interfaces;
 
     [Headers("x-api-key: free_user_3HxNFNxHA5PT2D4rTd3FTeB0AOM")]
     public interface IUserApi

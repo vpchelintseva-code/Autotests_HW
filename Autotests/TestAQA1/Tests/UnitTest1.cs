@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
+using Autotests.TestAQA1.DTO.Api;
 
-namespace Autotests.TestAQA1.DTO
+namespace Autotests.TestAQA1.Tests
 {
     public class Tests
     {
