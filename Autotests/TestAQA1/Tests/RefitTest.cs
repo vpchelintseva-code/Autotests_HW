@@ -1,16 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Refit;
 using Microsoft.Extensions.DependencyInjection;
-using Autotests.TestAQA1.DTO.Interfaces;
-using NUnit.Framework;
-using Autotests.TestAQA1.DTO;
+using Refit;
+using Autotests.TestAQA1.DTO.Api;
+using Autotests.TestAQA1.Interfaces;
 using System.Net;
 
-
-
-namespace Autotests.TestAQA1.DTO;
+namespace Autotests.TestAQA1.Tests;
     
     public class RefitTests
     {
