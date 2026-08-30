@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using Autotests.TestAQA1.DTO.UsersDTO;
 
 namespace Autotests.TestAQA1.Tests
@@ -86,6 +87,33 @@ namespace Autotests.TestAQA1.Tests
                     geo.Lng <= 24.2);
             }
             
+            //4 Проверить, что улицы у юзеров соответствуют условиям: содержат номер дома, улица начинается с буквы, улица не состоит только из цифр
+            [Test] // не состоит только из цифр
+            public void Test10_StreetsShouldNotContainOnlyDigits()
+            {
+                var streets = root.Data
+                    .Select(user => user.Profile.Address.Street)
+                    .ToList();
+                streets.Should().OnlyContain(street => !Regex.IsMatch(street.Trim(), @"^\d+$")); //убираем пробелы и проверям что строка не состоит только из цифр
+            }
+
+            [Test] // содержит номер дома
+            public void Test11_StreetsShouldContainHouseNumber()
+            {
+                var streets = root.Data
+                    .Select(user => user.Profile.Address.Street)
+                    .ToList();
+                streets.Should().OnlyContain(street => Regex.IsMatch(street, @"\d+")); // любая цифра
+            }
+            
+            [Test] // начинается с буквы
+            public void Test12_StreetNameStartLetter()
+            {
+                var streets = root.Data
+                    .Select(user => user.Profile.Address.Street)
+                    .ToList();
+                streets.Should().OnlyContain(street => Regex.IsMatch(street, @"^\p{L}")); //любая буква
+            }
     }
 }
 
