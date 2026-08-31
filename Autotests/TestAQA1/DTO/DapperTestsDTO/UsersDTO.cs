@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Autotests.TestAQA1.DTO.DapperTestsDTO
 {
-    public record UserDTO
+    public record UsersDTO
     (
         long Id,
 
