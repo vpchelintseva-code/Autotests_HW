@@ -6,11 +6,12 @@ using Autotests.TestAQA1.Interfaces.DapperTestsInterfaces;
 using Autotests.TestAQA1.Preconditions;
 using FluentAssertions;
 
-namespace Autotests.TestAQA1.Tests;
-
-public class DapperTests
+namespace Autotests.TestAQA1.Tests
 {
-    private readonly DataBasePreconditions p = new();
+    public class DapperTests
+    {
+        private readonly DataBasePreconditions p = new DataBasePreconditions();
+       
         //[Test] //генерация базы - раскомментить, а потом запустить тест разово/**//*
         // public async Task InitialiseTest()
         // {
@@ -20,7 +21,8 @@ public class DapperTests
         //     await DatabaseInitializer.InitializeAsync(connection);
         // }
 
-    public async Task CheckAllUsersCount()
+        [Test]
+        public async Task CheckAllUsersCount()
         {
             var repo = p.Provider.GetService<IUserRepository>();
             var users = await repo!.GetUsersAsync();
@@ -43,4 +45,5 @@ public class DapperTests
             var address = await repo!.GetAddressByUserIdAsync(1);
             address.Should().NotBeNull();
         }
+    }
 }
