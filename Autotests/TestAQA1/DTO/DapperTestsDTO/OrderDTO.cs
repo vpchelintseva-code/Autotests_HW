@@ -7,14 +7,10 @@ namespace Autotests.TestAQA1.DTO.DapperTestsDTO
 {
     public record OrderDTO
     (
-        int id,
-
-        long userId,
-
-        string orderDate,
-
-        string status,
-
-        decimal totalPrice
+        int Id,
+        long UserId,
+        string OrderDate,
+        string Status,
+        decimal TotalPrice
     );
 }

@@ -5,12 +5,13 @@ using System.Text.Json.Serialization;
 
 namespace Autotests.TestAQA1.DTO.DapperTestsDTO
 {
-    public record OrderItemsDTO
+    public record ReviewsDTO
     (
-        long id,
-        long orderId,
-        long productId,
-        long quantity,
-        long unitPrice
+        long Id,
+        long UserId,
+        long ProductId,
+        long Rating,
+        string Comment,
+        string CreatedAt
     );
 }
