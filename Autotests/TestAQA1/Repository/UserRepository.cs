@@ -14,23 +14,23 @@ namespace Autotests.TestAQA1.Repository
         {
             this.connection = connection;
         }
-        public async Task<IEnumerable<UserDTO>> GetUsersAsync()
+        public async Task<IEnumerable<UsersDTO>> GetUsersAsync()
         {
             using var db = new SqliteConnection(connection);
-            var users = await db.QueryAsync<UserDTO>("SELECT * from Users");
+            var users = await db.QueryAsync<UsersDTO>("SELECT * from Users");
             return users;
         }
-        public async Task<UserDTO> GetUserByIdAsync(int id)
+        public async Task<UsersDTO> GetUserByIdAsync(int id)
         {
             using var db = new SqliteConnection (connection);
-            var userById = await db.QueryFirstOrDefaultAsync<UserDTO>("SELECT * FROM Users WHERE Id = @id", new { id });
+            var userById = await db.QueryFirstOrDefaultAsync<UsersDTO>("SELECT * FROM Users WHERE Id = @id", new { id });
             return userById;
         }
 
-        public async Task<UserDTO> GetUserByNameAndSurname(string firstName, string lastName)
+        public async Task<UsersDTO> GetUserByNameAndSurname(string firstName, string lastName)
         {
             using var db = new SqliteConnection(connection);
-            var userByName = await db.QueryFirstOrDefaultAsync<UserDTO>("SELECT * FROM Users " +
+            var userByName = await db.QueryFirstOrDefaultAsync<UsersDTO>("SELECT * FROM Users " +
                                                                          "WHERE FirstName = @firstName AND LastName = @lastName", new { firstName, lastName });
             return userByName;
         }

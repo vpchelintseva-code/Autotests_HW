@@ -25,7 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Pets\" />
+  <None Update="Resources/**/*.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTO\BookStoreDTO\UserCreateResponseBookDTO.cs" />
   </ItemGroup>
 
 </Project>

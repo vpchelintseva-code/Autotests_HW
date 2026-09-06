@@ -9,8 +9,8 @@ namespace Autotests.TestAQA1.DTO.DapperTestsDTO
     (
         long Id,
         string Name,
-        string Description,
-        decimal Price,
+        string? Description,
+        double Price,
         long Stock,
         long CategoryId
     );

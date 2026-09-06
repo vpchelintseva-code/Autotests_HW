@@ -7,11 +7,11 @@ namespace Autotests.TestAQA1.DTO.DapperTestsDTO
 {
     public record ReviewsDTO
     (
-        long Id,
-        long UserId,
-        long ProductId,
-        long Rating,
-        string Comment,
-        string CreatedAt
+        long id,
+        long userId,
+        long productId,
+        long rating,
+        string? comment,
+        string createdAt
     );
 }
