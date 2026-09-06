@@ -5,23 +5,19 @@ using System.Collections.Generic;
 using Autotests.TestAQA1.DTO.DapperTestsDTO;
 using Autotests.TestAQA1.Interfaces.DapperTestsInterfaces;
 
-namespace Autotests.TestAQA1.Repository;
-
-public class MarketItemsRepository : IMarketItemsRepository
-{
-    private readonly string connectionString;
-    public MarketItemsRepository(string connectionString)
+    public class MarketItemsRepository : IMarketItemsRepository
     {
-        this.connectionString = connectionString;
-    }
-
-
-    public async Task<IEnumerable<CategoryDTO>> GetCategoriesAsync ()
-    {
-        using var db = new SqliteConnection(connectionString);
-        return await db.QueryAsync<CategoryDTO>("SELECT * FROM Categories");
-    }
-
+        private readonly string connectionString;
+        public MarketItemsRepository(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+    
+        public async Task<IEnumerable<CategoryDTO>> GetCategoriesAsync ()
+        {
+            using var db = new SqliteConnection(connectionString);
+            return await db.QueryAsync<CategoryDTO>("SELECT * FROM Categories");
+        }
     public async Task<ProductDTO?> GetProductAsync( long productId)
     
     {
@@ -60,6 +56,7 @@ public class MarketItemsRepository : IMarketItemsRepository
     }
 
     private sealed class OrderWithItemRow
+    
         {
             public long Id { get; set; }
             public long UserId { get; set; }
