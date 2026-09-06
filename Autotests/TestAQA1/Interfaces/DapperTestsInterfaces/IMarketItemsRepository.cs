@@ -7,7 +7,8 @@ namespace Autotests.TestAQA1.Interfaces.DapperTestsInterfaces
     {
         Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
         Task<ProductDTO> GetProductAsync(long productId);
-        Task<OrderWithItemDTO> GetOrderItemsAsync(long orderId, long userId);
+        Task<OrderWithItemsDTO?>  GetOrderWithItemsAsync(long orderId, long userId);
     }
 }
-    
+
+        
