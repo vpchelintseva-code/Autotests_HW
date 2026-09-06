@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using System;
-using TestAQA1.DTO.DapperTest;
+
+
 namespace helpers.classes
 {
     public static class RandomizerHelper
