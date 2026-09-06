@@ -11,6 +11,6 @@ namespace Autotests.TestAQA1.DTO.DapperTestsDTO
         long orderId,
         long productId,
         long quantity,
-        long unitPrice
+        decimal unitPrice
     );
 }

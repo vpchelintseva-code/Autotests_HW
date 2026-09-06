@@ -30,4 +30,8 @@
   </None>
 </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="DTO\BookStoreDTO\UserCreateResponseBookDTO.cs" />
+  </ItemGroup>
+
 </Project>

@@ -7,11 +7,11 @@ namespace Autotests.TestAQA1.DTO.DapperTestsDTO
 {
     public record ProductDTO
     (
-        long id,
-        string name,
-        string description,
-        decimal price,
-        long stock,
-        long categoryId
+        long Id,
+        string Name,
+        string? Description,
+        double Price,
+        long Stock,
+        long CategoryId
     );
 }
