@@ -12,8 +12,12 @@ using Autotests.TestAQA1.Interfaces.DapperTestsInterfaces;
         {
             this.connectionString = connectionString;
         }
-    }
-
+    
+        public async Task<IEnumerable<CategoryDTO>> GetCategoriesAsync ()
+        {
+            using var db = new SqliteConnection(connectionString);
+            return await db.QueryAsync<CategoryDTO>("SELECT * FROM Categories");
+        }
     public async Task<ProductDTO?> GetProductAsync( long productId)
     
     {
@@ -52,6 +56,7 @@ using Autotests.TestAQA1.Interfaces.DapperTestsInterfaces;
     }
 
     private sealed class OrderWithItemRow
+    
         {
             public long Id { get; set; }
             public long UserId { get; set; }
