@@ -8,6 +8,10 @@ namespace Autotests.TestAQA1.Interfaces.DapperTestsInterfaces
         Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
         Task<ProductDTO> GetProductAsync(long productId);
         Task<OrderWithItemsDTO?>  GetOrderWithItemsAsync(long orderId, long userId);
+
+        Task<IEnumerable<string>> GetCitiesOfUsersWhoBoughtCategoryAsync(string categoryName);
+        Task<IEnumerable<long>> GetUserIdsWhoBoughtCategoryAsync(string categoryName);
+        
     }
 }
 

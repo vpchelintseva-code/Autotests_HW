@@ -68,6 +68,31 @@ using Autotests.TestAQA1.Interfaces.DapperTestsInterfaces;
             public long Quantity { get; set; }
             public decimal UnitPrice { get; set; }
         }
+
+        public async Task<IEnumerable<string>> GetCitiesOfUsersWhoBoughtCategoryAsync(string categoryName)
+        {
+            using var db = new SqliteConnection(connectionString);
+            var cities = await db.QueryAsync<string>("SELECT DISTINCT a.City FROM Users u JOIN Addresses a ON a.UserId = u.Id " +
+                                                     "JOIN Orders o ON o.UserId = u.Id " +
+                                                     "JOIN OrderItems oi ON oi.OrderId = o.Id " +
+                                                     "JOIN Products p ON p.Id = oi.ProductId " +
+                                                     "JOIN Categories c ON c.Id = p.CategoryId " +
+                                                     "WHERE c.Name = 'Аксессуары';");
+            return cities;
+        }
+
+        public async Task<IEnumerable<long>> GetUserIdsWhoBoughtCategoryAsync(string categoryName)
+        {
+            using var db = new SqliteConnection(connectionString);
+            return await db.QueryAsync<long>("SELECT DISTINCT u.Id FROM Users u " +
+                                                     "JOIN Orders o ON o.UserId = u.Id " +
+                                                     "JOIN OrderItems oi ON oi.OrderId = o.Id " +
+                                                     "JOIN Products p ON p.Id = oi.ProductId " +
+                                                     "JOIN Categories c ON c.Id = p.CategoryId " +
+                                                     "WHERE c.Name = @categoryName", new { categoryName });
+        }
+
     }
+
     
     

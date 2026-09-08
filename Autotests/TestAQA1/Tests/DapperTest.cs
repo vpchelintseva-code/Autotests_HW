@@ -80,7 +80,25 @@ namespace Autotests.TestAQA1.Tests
             order.Items.Select(item => item.ProductName).Should().Contain("USB-C Hub", "Anker PowerBank");
 
         }
+
+        [Test] // Проверить, что товары категории Аксессуары покупают пользователи, живущие в разных городах
+        public async Task UsersWhoBoughtCategoryAccessoriesLiveInDifferentCities()
+        {
+            var repo = p.Provider.GetRequiredService<IMarketItemsRepository>();
+            var cities = await repo.GetCitiesOfUsersWhoBoughtCategoryAsync("Аксессуары");
+            cities.Should().NotBeNullOrEmpty();
+            cities.Distinct().Should().HaveCountGreaterThan(1);
+        }
         
+        [Test] //Проверить, что покупатели телевизоров покупают также и аксессуары
+        public async Task TVBuyerAlsoByAccessories()
+        {
+            var repo = p.Provider.GetRequiredService<IMarketItemsRepository>();
+            var tvBuyers = await repo.GetUserIdsWhoBoughtCategoryAsync("Телевизоры");
+            var buyerAcc = await repo.GetUserIdsWhoBoughtCategoryAsync("Аксессуары");
+            tvBuyers.Should().NotBeNullOrEmpty();
+            tvBuyers.Distinct().Should().OnlyContain(userId => buyerAcc.Contains(userId));
+        }
         
     }
 }
