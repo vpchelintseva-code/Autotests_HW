@@ -1,7 +1,7 @@
 using System;
 namespace BookStore.DTO
 {
-    public record UserCreateBodyDTO(
+    public record UserCreateRequestDTO(
         string UserName,
         string Password
     );
