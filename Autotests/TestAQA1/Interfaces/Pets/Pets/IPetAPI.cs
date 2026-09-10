@@ -2,7 +2,7 @@ using Refit;
 using System;
 using Pets;
 using TestsPets.DTO;
-namespace Pets.interfaces
+namespace Pets.interfaces.Pets
 {
     //[Headers("x-Tenant-ID: 550e8400-e29b-41d4-a716-446655440000")]
     public interface IPetAPI
